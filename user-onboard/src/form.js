@@ -17,25 +17,37 @@ function OnBoardForm({values, errors, touched, status}){
     console.log(users);
 
     return(
-        <Form>
-            <div>
-                {touched.name && errors.name && <p>{errors.name}</p>}
-                <Field type="text" name="name" placeholder="Name"/>
-            </div>
-            <div>
-                {touched.email && errors.email && <p>{errors.email}</p>}
-                <Field type="email" name="email" placeholder="Email"/>
-            </div>
-            <div>
-                {touched.password && errors.password && <p>{errors.password}</p>}
-                <Field type="password" name="password" placeholder="Password"/>
-            </div>
-            <div>
-                <p>Read Term and Conditions</p>
-                <Field type="checkbox" name="tos" checked={values.tos}/>
-            </div>
-            <button>Submit</button>
-        </Form>
+        <div>
+            <Form>
+                <div>
+                    {touched.name && errors.name && <p>{errors.name}</p>}
+                    <Field type="text" name="name" placeholder="Name"/>
+                </div>
+                <div>
+                    {touched.email && errors.email && <p>{errors.email}</p>}
+                    <Field type="email" name="email" placeholder="Email"/>
+                </div>
+                <div>
+                    {touched.password && errors.password && <p>{errors.password}</p>}
+                    <Field type="password" name="password" placeholder="Password"/>
+                </div>
+                <div>
+                    <p>Read Term and Conditions</p>
+                    <Field type="checkbox" name="tos" checked={values.tos}/>
+                </div>
+                <button>Submit</button>
+            </Form>
+            {users.map(user =>(
+                <div>
+                    <h2>Your Sign Up Information Is</h2>
+                    <p>{user.name}</p>
+                    <p>{user.email}</p>
+                    <p>{user.username}</p>
+                    <p>{user.password}</p>
+                </div>
+            ))}
+
+        </div>
     )
 
 }
